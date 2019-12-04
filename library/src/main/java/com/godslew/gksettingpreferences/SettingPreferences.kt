@@ -5,24 +5,17 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.google.gson.Gson
 
-
-/*
-   initialize by Application#onCreate
- */
 class SettingPreferences {
     private var dataStoreName = DataStoreName
-    private var context: Context
     private val gson = Gson()
     private var sp : SharedPreferences
 
     constructor(ctx: Context) {
-        context = ctx
-        sp = context.getSharedPreferences(dataStoreName, MODE_PRIVATE)
+        sp = ctx.getSharedPreferences(dataStoreName, MODE_PRIVATE)
     }
     constructor(ctx: Context, optionalStoreName : String) {
-        context = ctx
         dataStoreName = optionalStoreName
-        sp = context.getSharedPreferences(dataStoreName, MODE_PRIVATE)
+        sp = ctx.getSharedPreferences(dataStoreName, MODE_PRIVATE)
     }
 
     companion object {
